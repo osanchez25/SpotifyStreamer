@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2D4883311B7A4E59001CA967 /* background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2D4883301B7A4E59001CA967 /* background.jpg */; };
+		2D4883361B7A8D09001CA967 /* ArtistController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D4883331B7A8D09001CA967 /* ArtistController.m */; };
+		2D4883371B7A8D09001CA967 /* LoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D4883351B7A8D09001CA967 /* LoginController.m */; };
 		2D7BC39F1B79165900D4A229 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D7BC39E1B79165900D4A229 /* main.m */; };
 		2D7BC3A21B79165900D4A229 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D7BC3A11B79165900D4A229 /* AppDelegate.m */; };
 		2D7BC3A51B79165900D4A229 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D7BC3A41B79165900D4A229 /* ViewController.m */; };
@@ -14,6 +17,10 @@
 		2D7BC3AA1B79165900D4A229 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2D7BC3A91B79165900D4A229 /* Images.xcassets */; };
 		2D7BC3AD1B79165900D4A229 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D7BC3AB1B79165900D4A229 /* LaunchScreen.xib */; };
 		2D7BC3B91B79165900D4A229 /* SpotifyStreamerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D7BC3B81B79165900D4A229 /* SpotifyStreamerTests.m */; };
+		2D7BC3C41B792F8F00D4A229 /* Spotify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D7BC3C31B792F8F00D4A229 /* Spotify.framework */; };
+		2D7BC3C61B79397000D4A229 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D7BC3C51B79397000D4A229 /* AVFoundation.framework */; };
+		2D7BC3C81B79398400D4A229 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D7BC3C71B79398400D4A229 /* SystemConfiguration.framework */; };
+		C7BC5CCB1E97D9B47481511F /* libPods-SpotifyStreamer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B1019D3800FE64C95726C72F /* libPods-SpotifyStreamer.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,6 +34,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2D4883251B7A3BB7001CA967 /* config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = config.h; sourceTree = "<group>"; };
+		2D4883301B7A4E59001CA967 /* background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background.jpg; sourceTree = "<group>"; };
+		2D4883321B7A8D09001CA967 /* ArtistController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArtistController.h; sourceTree = "<group>"; };
+		2D4883331B7A8D09001CA967 /* ArtistController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArtistController.m; sourceTree = "<group>"; };
+		2D4883341B7A8D09001CA967 /* LoginController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginController.h; sourceTree = "<group>"; };
+		2D4883351B7A8D09001CA967 /* LoginController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginController.m; sourceTree = "<group>"; };
 		2D7BC3991B79165900D4A229 /* SpotifyStreamer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpotifyStreamer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D7BC39D1B79165900D4A229 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2D7BC39E1B79165900D4A229 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -40,6 +53,12 @@
 		2D7BC3B21B79165900D4A229 /* SpotifyStreamerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpotifyStreamerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D7BC3B71B79165900D4A229 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2D7BC3B81B79165900D4A229 /* SpotifyStreamerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SpotifyStreamerTests.m; sourceTree = "<group>"; };
+		2D7BC3C31B792F8F00D4A229 /* Spotify.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Spotify.framework; sourceTree = "<group>"; };
+		2D7BC3C51B79397000D4A229 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		2D7BC3C71B79398400D4A229 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		B1019D3800FE64C95726C72F /* libPods-SpotifyStreamer.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SpotifyStreamer.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DBF53B0CC044060D0E5232F5 /* Pods-SpotifyStreamer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpotifyStreamer.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SpotifyStreamer/Pods-SpotifyStreamer.debug.xcconfig"; sourceTree = "<group>"; };
+		E01EB6708AC158E44ADB8860 /* Pods-SpotifyStreamer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpotifyStreamer.release.xcconfig"; path = "Pods/Target Support Files/Pods-SpotifyStreamer/Pods-SpotifyStreamer.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +66,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2D7BC3C81B79398400D4A229 /* SystemConfiguration.framework in Frameworks */,
+				2D7BC3C61B79397000D4A229 /* AVFoundation.framework in Frameworks */,
+				2D7BC3C41B792F8F00D4A229 /* Spotify.framework in Frameworks */,
+				C7BC5CCB1E97D9B47481511F /* libPods-SpotifyStreamer.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -60,12 +83,46 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2D4883281B7A432D001CA967 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				2D4883321B7A8D09001CA967 /* ArtistController.h */,
+				2D4883331B7A8D09001CA967 /* ArtistController.m */,
+				2D4883341B7A8D09001CA967 /* LoginController.h */,
+				2D4883351B7A8D09001CA967 /* LoginController.m */,
+			);
+			name = ViewControllers;
+			path = SpotifyStreamer/ViewControllers;
+			sourceTree = "<group>";
+		};
+		2D48832F1B7A4E4E001CA967 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				2D4883301B7A4E59001CA967 /* background.jpg */,
+			);
+			name = images;
+			path = SpotifyStreamer/images;
+			sourceTree = "<group>";
+		};
+		2D4883381B7A9256001CA967 /* Data Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Data Model";
+			path = "SpotifyStreamer/Data Model";
+			sourceTree = "<group>";
+		};
 		2D7BC3901B79165900D4A229 = {
 			isa = PBXGroup;
 			children = (
+				2D4883381B7A9256001CA967 /* Data Model */,
+				2D48832F1B7A4E4E001CA967 /* images */,
+				2D4883281B7A432D001CA967 /* ViewControllers */,
+				2D7BC3C21B792F5000D4A229 /* Frameworks */,
 				2D7BC39B1B79165900D4A229 /* SpotifyStreamer */,
 				2D7BC3B51B79165900D4A229 /* SpotifyStreamerTests */,
 				2D7BC39A1B79165900D4A229 /* Products */,
+				AD2360B90E3CB74AADECEA96 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -89,6 +146,7 @@
 				2D7BC3A91B79165900D4A229 /* Images.xcassets */,
 				2D7BC3AB1B79165900D4A229 /* LaunchScreen.xib */,
 				2D7BC39C1B79165900D4A229 /* Supporting Files */,
+				2D4883251B7A3BB7001CA967 /* config.h */,
 			);
 			path = SpotifyStreamer;
 			sourceTree = "<group>";
@@ -119,6 +177,27 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		2D7BC3C21B792F5000D4A229 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2D7BC3C71B79398400D4A229 /* SystemConfiguration.framework */,
+				2D7BC3C51B79397000D4A229 /* AVFoundation.framework */,
+				2D7BC3C31B792F8F00D4A229 /* Spotify.framework */,
+				B1019D3800FE64C95726C72F /* libPods-SpotifyStreamer.a */,
+			);
+			name = Frameworks;
+			path = SpotifyStreamer/Frameworks;
+			sourceTree = "<group>";
+		};
+		AD2360B90E3CB74AADECEA96 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				DBF53B0CC044060D0E5232F5 /* Pods-SpotifyStreamer.debug.xcconfig */,
+				E01EB6708AC158E44ADB8860 /* Pods-SpotifyStreamer.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -126,9 +205,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2D7BC3BC1B79165900D4A229 /* Build configuration list for PBXNativeTarget "SpotifyStreamer" */;
 			buildPhases = (
+				8CBEB830C547F2137A007450 /* Check Pods Manifest.lock */,
 				2D7BC3951B79165900D4A229 /* Sources */,
 				2D7BC3961B79165900D4A229 /* Frameworks */,
 				2D7BC3971B79165900D4A229 /* Resources */,
+				ED94134EC7E43B08910BE2BB /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -200,6 +281,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2D7BC3A81B79165900D4A229 /* Main.storyboard in Resources */,
+				2D4883311B7A4E59001CA967 /* background.jpg in Resources */,
 				2D7BC3AD1B79165900D4A229 /* LaunchScreen.xib in Resources */,
 				2D7BC3AA1B79165900D4A229 /* Images.xcassets in Resources */,
 			);
@@ -214,11 +296,46 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		8CBEB830C547F2137A007450 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		ED94134EC7E43B08910BE2BB /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SpotifyStreamer/Pods-SpotifyStreamer-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		2D7BC3951B79165900D4A229 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2D4883371B7A8D09001CA967 /* LoginController.m in Sources */,
+				2D4883361B7A8D09001CA967 /* ArtistController.m in Sources */,
 				2D7BC3A51B79165900D4A229 /* ViewController.m in Sources */,
 				2D7BC3A21B79165900D4A229 /* AppDelegate.m in Sources */,
 				2D7BC39F1B79165900D4A229 /* main.m in Sources */,
@@ -347,20 +464,32 @@
 		};
 		2D7BC3BD1B79165900D4A229 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DBF53B0CC044060D0E5232F5 /* Pods-SpotifyStreamer.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/SpotifyStreamer/Frameworks",
+				);
 				INFOPLIST_FILE = SpotifyStreamer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
 		};
 		2D7BC3BE1B79165900D4A229 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E01EB6708AC158E44ADB8860 /* Pods-SpotifyStreamer.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/SpotifyStreamer/Frameworks",
+				);
 				INFOPLIST_FILE = SpotifyStreamer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -418,6 +547,7 @@
 				2D7BC3BE1B79165900D4A229 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2D7BC3BF1B79165900D4A229 /* Build configuration list for PBXNativeTarget "SpotifyStreamerTests" */ = {
 			isa = XCConfigurationList;
@@ -426,6 +556,7 @@
 				2D7BC3C11B79165900D4A229 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
