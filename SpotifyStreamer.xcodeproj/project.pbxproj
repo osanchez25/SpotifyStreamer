@@ -20,7 +20,6 @@
 		2D7BC3C41B792F8F00D4A229 /* Spotify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D7BC3C31B792F8F00D4A229 /* Spotify.framework */; };
 		2D7BC3C61B79397000D4A229 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D7BC3C51B79397000D4A229 /* AVFoundation.framework */; };
 		2D7BC3C81B79398400D4A229 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D7BC3C71B79398400D4A229 /* SystemConfiguration.framework */; };
-		C7BC5CCB1E97D9B47481511F /* libPods-SpotifyStreamer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B1019D3800FE64C95726C72F /* libPods-SpotifyStreamer.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,7 +68,6 @@
 				2D7BC3C81B79398400D4A229 /* SystemConfiguration.framework in Frameworks */,
 				2D7BC3C61B79397000D4A229 /* AVFoundation.framework in Frameworks */,
 				2D7BC3C41B792F8F00D4A229 /* Spotify.framework in Frameworks */,
-				C7BC5CCB1E97D9B47481511F /* libPods-SpotifyStreamer.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -205,11 +203,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2D7BC3BC1B79165900D4A229 /* Build configuration list for PBXNativeTarget "SpotifyStreamer" */;
 			buildPhases = (
-				8CBEB830C547F2137A007450 /* Check Pods Manifest.lock */,
 				2D7BC3951B79165900D4A229 /* Sources */,
 				2D7BC3961B79165900D4A229 /* Frameworks */,
 				2D7BC3971B79165900D4A229 /* Resources */,
-				ED94134EC7E43B08910BE2BB /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -295,39 +291,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		8CBEB830C547F2137A007450 /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		ED94134EC7E43B08910BE2BB /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SpotifyStreamer/Pods-SpotifyStreamer-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		2D7BC3951B79165900D4A229 /* Sources */ = {
@@ -464,7 +427,6 @@
 		};
 		2D7BC3BD1B79165900D4A229 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DBF53B0CC044060D0E5232F5 /* Pods-SpotifyStreamer.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -480,7 +442,6 @@
 		};
 		2D7BC3BE1B79165900D4A229 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E01EB6708AC158E44ADB8860 /* Pods-SpotifyStreamer.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				FRAMEWORK_SEARCH_PATHS = (
