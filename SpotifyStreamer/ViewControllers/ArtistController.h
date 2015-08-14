@@ -11,9 +11,4 @@
 @interface ArtistController : UITableViewController <UISearchBarDelegate, UISearchResultsUpdating>
 
 
-//===========================
-// MovieTableViewController.m
-//===========================
-
-
 @end

@@ -11,24 +11,15 @@
 #import "Config.h"
 
 @interface ArtistController ()
-   // @property (nonatomic,strong) NSMutableArray *artists;
+    @property (nonatomic,strong) NSMutableArray *artists;
+    @property (nonatomic,strong) NSMutableArray *artistsC;
     //@property (nonatomic,strong) UISearchController *searchController;
      //@property (nonatomic,strong) SPTArtist *artist;
+@property (nonatomic,strong) UISearchController *searchController;
 
 @end
 
 @implementation ArtistController
-{
-    UISearchController *searchController;
-    NSMutableArray *artists;
-    
-    NSInteger searchId;
-    NSInteger displayedSearchId;
-    NSUInteger loadedPage;
-    NSUInteger nbPages;
-    
-    UIImage *placeholder;
-}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -36,27 +27,29 @@
     
    //self.artists = [[Artist getArtists] mutableCopy];
     // Search controller
-    searchController = [[UISearchController alloc] initWithSearchResultsController:nil];
-    searchController.searchResultsUpdater = self;
-    searchController.dimsBackgroundDuringPresentation = NO;
-    searchController.searchBar.delegate = self;
+    self.searchController = [[UISearchController alloc] initWithSearchResultsController:nil];
+    self.searchController.searchResultsUpdater = self;
+    self.searchController.dimsBackgroundDuringPresentation = NO;
+    self.searchController.searchBar.delegate = self;
     
     // Add the search bar
-    self.tableView.tableHeaderView = searchController.searchBar;
+    self.tableView.tableHeaderView = self.searchController.searchBar;
     self.definesPresentationContext = YES;
-    [searchController.searchBar sizeToFit];
+    [self.searchController.searchBar sizeToFit];
+   
     
+    self.artists = [NSMutableArray array];
     
-    artists = [NSMutableArray array];
-    searchId = 0;
+    /*searchId = 0;
     displayedSearchId = -1;
     loadedPage = 0;
     nbPages = 0;
     
     placeholder = [UIImage imageNamed:@"white"];
-    
+    */
     // First load
-    [self updateSearchResultsForSearchController:searchController];
+    [self updateSearchResultsForSearchController:self.searchController];
+   // [self updateSearchResultsForSearchController:];
     
         // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -83,14 +76,16 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-
+   NSLog(@"COUNT ARTISTS: %lu", (unsigned long)self.artists.count);
     // Return the number of rows in the section.
-    return artists.count;
+    return self.artists.count;
+    
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ArtistCell" forIndexPath:indexPath];
+
     // Configure the cell...
     //SPTArtist* artist = self.artists[indexPath.row];
    // Artist *artist = self.artists[indexPath.row];
@@ -99,22 +94,47 @@
     
     
     
-    SPTArtist *artist = artists[indexPath.row];
+    SPTPartialArtist* partialArtist = self.artists[indexPath.row];
     //cell.textLabel.highlightedTextColor = [UIColor colorWithRed:1 green:1 blue:0.898 alpha:1];
-    cell.textLabel.text = artist.name;
+    cell.textLabel.text = partialArtist.name;
     
     // Avoid loading image that we don't need anymore
     //[cell.imageView cancelImageRequestOperation];
     // Load the image and display another image during the loading
     
-    /*UIImage *image = nil;
-    //NSData *imageData = [NSData dataWithContentsOfURL:artist.smallestImage.imageURL options:0 error:nil];
     
-    if (imageData != nil) {
-        image = [UIImage imageWithData:imageData];
+    if (partialArtist.uri) {
+        [SPTArtist artistWithURI:partialArtist.uri accessToken:nil callback:^(NSError *error, SPTArtist *artist) {
+            if (artist.smallestImage.imageURL) {
+                // Pop over to a background queue to load the image over the network.
+                dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+                    NSError *error = nil;
+                    UIImage *image = nil;
+                    NSData *imageData = [NSData dataWithContentsOfURL:artist.smallestImage.imageURL options:0 error:nil];
+                    
+                    if (imageData != nil) {
+                        image = [UIImage imageWithData:imageData];
+                    }
+                    
+                    
+                    // …and back to the main queue to display the image.
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        
+                        cell.imageView.image = image;
+                        if (image == nil) {
+                            NSLog(@"Couldn't load cover image with error: %@", error);
+                            return;
+                        }
+                    });
+                    
+                    
+                });            }
+            
+        }];
+    
     }
-    cell.imageView.image = image;
-    */
+    
+    NSLog(@"Retornando CELL %@", @"");
     return cell;
 }
 
@@ -123,12 +143,14 @@
 
 - (void)updateSearchResultsForSearchController:(UISearchController *)searchController {
     
-    [artists removeAllObjects];
     
-    [SPTSearch performSearchWithQuery:self->searchController.searchBar.text queryType:SPTQueryTypeArtist accessToken: nil callback:^(NSError *error, SPTListPage *result) {
+    //FORMA QUE FUNCIONA SIN IMAGENES
+        [self.artists removeAllObjects];
+    
+    [SPTSearch performSearchWithQuery:self.searchController.searchBar.text queryType:SPTQueryTypeArtist accessToken: nil callback:^(NSError *error, SPTListPage *result) {
         
         for (SPTArtist *artist in result.items) {
-              [artists addObject:artist];
+            [self.artists addObject:artist];
         }
         
         
@@ -137,35 +159,126 @@
     }];
     
     
+    //if (self.searchController.searchBar.text.length > 3) {
     
-    /*query.fullTextQuery =
-    NSInteger curSearchId = searchId;
+        //
     
-    [movieIndex search:query success:^(ASRemoteIndex *index, ASQuery *query, NSDictionary *result) {
-        if (curSearchId <= displayedSearchId) {
-            return; // Newest query already displayed
-        }
-        
-        displayedSearchId = curSearchId;
-        loadedPage = 0; // Reset loaded page
-        
-        // Decode JSON
-        NSArray *hits = result[@"hits"];
-        nbPages = [result[@"nbPages"] integerValue];
-        
-        NSMutableArray *tmp = [NSMutableArray array];
-        for (int i = 0; i < [hits count]; ++i) {
-            [tmp addObject:[[MovieRecord alloc] init:hits[i]]];
-        }
-        
-        // Reload view with the new data
-        
-    } failure:nil];
     
-    ++searchId;
-     
-     */
+   /// PARTE RARA
+    
+    
+    /*
+        SPTAuth *auth = [SPTAuth defaultInstance];
+
+ NSLog(@"TEXTO BSUQUEDA %@ ", self.searchController.searchBar.text);
+    
+    
+    [self.artists removeAllObjects];
+
+        [SPTSearch performSearchWithQuery:self.searchController.searchBar.text queryType:SPTQueryTypeArtist accessToken: auth.session.accessToken callback:^(NSError *error, SPTListPage *result) {
+            NSLog(@"OBTENIDO %lu ", (unsigned long)result.items.count);
+                       for (SPTPartialArtist *PartialArtist in result.items) {
+                
+               
+                if (PartialArtist.uri) {
+                   
+                    [SPTArtist artistWithURI:PartialArtist.uri accessToken:nil callback:^(NSError *error, SPTArtist *artist) {
+                       // if (artist != nil) {
+                         NSLog(@"AGREGADO %@ ", artist.name);
+                            [self.artists addObject:artist];
+                       
+                       // }else{
+                       // NSLog(@"NOT OBJECt %@ ", @"");
+                       // }
+                                            }];
+                }else{
+                NSLog(@"NOT URI %@ ", PartialArtist.name);
+                }
+              
+                
+            }
+            //self.artists = self.artistsC;
+            
+           [self.tableView reloadData];
+            
+        }];
+    */
 }
+    /*
+    
+    }
+    
+  
+    */
+    /*
+     
+     
+    
+    // Oh noes, the token has expired, if we have a token refresh service set up, we'll call tat one.
+    
+    
+    [SPTSearch performSearchWithQuery:self.searchController.searchBar.text queryType:SPTQueryTypeArtist accessToken: nil callback:^(NSError *error, SPTListPage *result) {
+        [self.artists removeAllObjects];
+        
+        
+        for (SPTPartialArtist *PartialArtist in result.items) {
+           // [self.artistsURI addObjectsFromArray:result.items.accessibilityElements]
+            
+            [SPTArtist artistWithURI:PartialArtist.uri session:auth.session callback:^(NSError *error, SPTArtist *artist) {
+                [self.artists addObject:artist];
+            }];
+            
+        }
+        [self.tableView reloadData];
+  }];
+        */
+      //  NSArray *names = [result.items valueForKey:@"playableUri"];
+       // for (NSURL *objeto in result) {
+         
+            //[self.artists addObject:artist];
+       // }
+        
+        
+        
+        
+         /*NSArray *names = [result.items valueForKey:@"playableUri"];
+        [SPTArtist artistsWithURIs:names session:nil callback:^(NSError *error, NSArray *ArtistList) {
+            [self.artists removeAllObjects];
+            [self.artists addObjectsFromArray:ArtistList];
+        }];
+        
+        
+        
+        
+        
+        
+       //[a]SPTArtist createRequestForArtists:result.items withAccessToken:nil error:(NSError *__autoreleasing *)
+        
+        
+         
+         for (NSURL *objeto in names) {
+         [self.artists addObject:artist];
+         }
+         for (SPTPartialArtist *artist in result.items) {
+            [self.artistsURI addObjectsFromArray:result.items.accessibilityElements]
+            
+            SPTArtist artistsWithURIs:result.items session:<#(SPTSession *)#> callback:<#^(NSError *error, id object)block#>
+              [self.artists addObject:artist];
+        }
+         [SPTArtist artistsWithURIs:names session:nil callback:^(NSError *error, SPTListPage *ArtistList) {
+         
+         [self.artists addObjectsFromArray:ArtistList.items];
+         }];
+       
+        */
+        
+  
+    
+    
+    
+    
+
+
 
 
 
