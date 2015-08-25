@@ -7,19 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2D383BEB1B8CC479004B8BA3 /* spinner.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D383BEA1B8CC479004B8BA3 /* spinner.png */; };
+		2D383BEE1B8CCA7A004B8BA3 /* PlayerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D383BED1B8CCA7A004B8BA3 /* PlayerController.m */; };
+		2D383BF01B8CD091004B8BA3 /* pause-32.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D383BEF1B8CD091004B8BA3 /* pause-32.png */; };
+		2D383BF21B8CD09D004B8BA3 /* play-32.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D383BF11B8CD09D004B8BA3 /* play-32.png */; };
+		2D383BF41B8CD0A8004B8BA3 /* previous-32.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D383BF31B8CD0A8004B8BA3 /* previous-32.png */; };
+		2D383BF61B8CD0B5004B8BA3 /* next-32.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D383BF51B8CD0B5004B8BA3 /* next-32.png */; };
+		2D42BF4A1B8B93B1003BE9E6 /* ArtistCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D42BF491B8B93B1003BE9E6 /* ArtistCell.m */; };
+		2D42BF4D1B8BAE56003BE9E6 /* SongCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D42BF4C1B8BAE56003BE9E6 /* SongCell.m */; };
+		2D42BF501B8BAE97003BE9E6 /* SongController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D42BF4F1B8BAE97003BE9E6 /* SongController.m */; };
+		2D42BF521B8BBA1E003BE9E6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D42BF511B8BBA1E003BE9E6 /* Main.storyboard */; };
 		2D4883311B7A4E59001CA967 /* background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2D4883301B7A4E59001CA967 /* background.jpg */; };
 		2D4883361B7A8D09001CA967 /* ArtistController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D4883331B7A8D09001CA967 /* ArtistController.m */; };
 		2D4883371B7A8D09001CA967 /* LoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D4883351B7A8D09001CA967 /* LoginController.m */; };
 		2D7BC39F1B79165900D4A229 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D7BC39E1B79165900D4A229 /* main.m */; };
 		2D7BC3A21B79165900D4A229 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D7BC3A11B79165900D4A229 /* AppDelegate.m */; };
 		2D7BC3A51B79165900D4A229 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D7BC3A41B79165900D4A229 /* ViewController.m */; };
-		2D7BC3A81B79165900D4A229 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D7BC3A61B79165900D4A229 /* Main.storyboard */; };
 		2D7BC3AA1B79165900D4A229 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2D7BC3A91B79165900D4A229 /* Images.xcassets */; };
 		2D7BC3AD1B79165900D4A229 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D7BC3AB1B79165900D4A229 /* LaunchScreen.xib */; };
 		2D7BC3B91B79165900D4A229 /* SpotifyStreamerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D7BC3B81B79165900D4A229 /* SpotifyStreamerTests.m */; };
 		2D7BC3C41B792F8F00D4A229 /* Spotify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D7BC3C31B792F8F00D4A229 /* Spotify.framework */; };
 		2D7BC3C61B79397000D4A229 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D7BC3C51B79397000D4A229 /* AVFoundation.framework */; };
 		2D7BC3C81B79398400D4A229 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D7BC3C71B79398400D4A229 /* SystemConfiguration.framework */; };
+		F5DBCFB9644D36E3E661A0DC /* libPods-SpotifyStreamer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B1019D3800FE64C95726C72F /* libPods-SpotifyStreamer.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,6 +43,20 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2D383BEA1B8CC479004B8BA3 /* spinner.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spinner.png; sourceTree = "<group>"; };
+		2D383BEC1B8CCA7A004B8BA3 /* PlayerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerController.h; sourceTree = "<group>"; };
+		2D383BED1B8CCA7A004B8BA3 /* PlayerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerController.m; sourceTree = "<group>"; };
+		2D383BEF1B8CD091004B8BA3 /* pause-32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pause-32.png"; sourceTree = "<group>"; };
+		2D383BF11B8CD09D004B8BA3 /* play-32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "play-32.png"; sourceTree = "<group>"; };
+		2D383BF31B8CD0A8004B8BA3 /* previous-32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "previous-32.png"; sourceTree = "<group>"; };
+		2D383BF51B8CD0B5004B8BA3 /* next-32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "next-32.png"; sourceTree = "<group>"; };
+		2D42BF481B8B93B1003BE9E6 /* ArtistCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArtistCell.h; sourceTree = "<group>"; };
+		2D42BF491B8B93B1003BE9E6 /* ArtistCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArtistCell.m; sourceTree = "<group>"; };
+		2D42BF4B1B8BAE56003BE9E6 /* SongCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SongCell.h; sourceTree = "<group>"; };
+		2D42BF4C1B8BAE56003BE9E6 /* SongCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SongCell.m; sourceTree = "<group>"; };
+		2D42BF4E1B8BAE97003BE9E6 /* SongController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SongController.h; sourceTree = "<group>"; };
+		2D42BF4F1B8BAE97003BE9E6 /* SongController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SongController.m; sourceTree = "<group>"; };
+		2D42BF511B8BBA1E003BE9E6 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		2D4883251B7A3BB7001CA967 /* config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = config.h; sourceTree = "<group>"; };
 		2D4883301B7A4E59001CA967 /* background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background.jpg; sourceTree = "<group>"; };
 		2D4883321B7A8D09001CA967 /* ArtistController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArtistController.h; sourceTree = "<group>"; };
@@ -46,7 +70,6 @@
 		2D7BC3A11B79165900D4A229 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		2D7BC3A31B79165900D4A229 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		2D7BC3A41B79165900D4A229 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		2D7BC3A71B79165900D4A229 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2D7BC3A91B79165900D4A229 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		2D7BC3AC1B79165900D4A229 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		2D7BC3B21B79165900D4A229 /* SpotifyStreamerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpotifyStreamerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -68,6 +91,7 @@
 				2D7BC3C81B79398400D4A229 /* SystemConfiguration.framework in Frameworks */,
 				2D7BC3C61B79397000D4A229 /* AVFoundation.framework in Frameworks */,
 				2D7BC3C41B792F8F00D4A229 /* Spotify.framework in Frameworks */,
+				F5DBCFB9644D36E3E661A0DC /* libPods-SpotifyStreamer.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -84,10 +108,18 @@
 		2D4883281B7A432D001CA967 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				2D42BF481B8B93B1003BE9E6 /* ArtistCell.h */,
+				2D42BF491B8B93B1003BE9E6 /* ArtistCell.m */,
 				2D4883321B7A8D09001CA967 /* ArtistController.h */,
 				2D4883331B7A8D09001CA967 /* ArtistController.m */,
 				2D4883341B7A8D09001CA967 /* LoginController.h */,
 				2D4883351B7A8D09001CA967 /* LoginController.m */,
+				2D42BF4B1B8BAE56003BE9E6 /* SongCell.h */,
+				2D42BF4C1B8BAE56003BE9E6 /* SongCell.m */,
+				2D42BF4E1B8BAE97003BE9E6 /* SongController.h */,
+				2D42BF4F1B8BAE97003BE9E6 /* SongController.m */,
+				2D383BEC1B8CCA7A004B8BA3 /* PlayerController.h */,
+				2D383BED1B8CCA7A004B8BA3 /* PlayerController.m */,
 			);
 			name = ViewControllers;
 			path = SpotifyStreamer/ViewControllers;
@@ -96,6 +128,11 @@
 		2D48832F1B7A4E4E001CA967 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				2D383BF51B8CD0B5004B8BA3 /* next-32.png */,
+				2D383BF31B8CD0A8004B8BA3 /* previous-32.png */,
+				2D383BEF1B8CD091004B8BA3 /* pause-32.png */,
+				2D383BF11B8CD09D004B8BA3 /* play-32.png */,
+				2D383BEA1B8CC479004B8BA3 /* spinner.png */,
 				2D4883301B7A4E59001CA967 /* background.jpg */,
 			);
 			name = images;
@@ -136,11 +173,11 @@
 		2D7BC39B1B79165900D4A229 /* SpotifyStreamer */ = {
 			isa = PBXGroup;
 			children = (
+				2D42BF511B8BBA1E003BE9E6 /* Main.storyboard */,
 				2D7BC3A01B79165900D4A229 /* AppDelegate.h */,
 				2D7BC3A11B79165900D4A229 /* AppDelegate.m */,
 				2D7BC3A31B79165900D4A229 /* ViewController.h */,
 				2D7BC3A41B79165900D4A229 /* ViewController.m */,
-				2D7BC3A61B79165900D4A229 /* Main.storyboard */,
 				2D7BC3A91B79165900D4A229 /* Images.xcassets */,
 				2D7BC3AB1B79165900D4A229 /* LaunchScreen.xib */,
 				2D7BC39C1B79165900D4A229 /* Supporting Files */,
@@ -203,9 +240,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2D7BC3BC1B79165900D4A229 /* Build configuration list for PBXNativeTarget "SpotifyStreamer" */;
 			buildPhases = (
+				4260EFA689D30F63EAB2AF9E /* Check Pods Manifest.lock */,
 				2D7BC3951B79165900D4A229 /* Sources */,
 				2D7BC3961B79165900D4A229 /* Frameworks */,
 				2D7BC3971B79165900D4A229 /* Resources */,
+				5D5ABDF95754F841F3A86B7B /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -276,10 +315,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2D7BC3A81B79165900D4A229 /* Main.storyboard in Resources */,
+				2D383BEB1B8CC479004B8BA3 /* spinner.png in Resources */,
+				2D383BF41B8CD0A8004B8BA3 /* previous-32.png in Resources */,
+				2D383BF01B8CD091004B8BA3 /* pause-32.png in Resources */,
+				2D383BF61B8CD0B5004B8BA3 /* next-32.png in Resources */,
 				2D4883311B7A4E59001CA967 /* background.jpg in Resources */,
 				2D7BC3AD1B79165900D4A229 /* LaunchScreen.xib in Resources */,
+				2D383BF21B8CD09D004B8BA3 /* play-32.png in Resources */,
 				2D7BC3AA1B79165900D4A229 /* Images.xcassets in Resources */,
+				2D42BF521B8BBA1E003BE9E6 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -292,16 +336,53 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		4260EFA689D30F63EAB2AF9E /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		5D5ABDF95754F841F3A86B7B /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SpotifyStreamer/Pods-SpotifyStreamer-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		2D7BC3951B79165900D4A229 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2D42BF4A1B8B93B1003BE9E6 /* ArtistCell.m in Sources */,
+				2D383BEE1B8CCA7A004B8BA3 /* PlayerController.m in Sources */,
 				2D4883371B7A8D09001CA967 /* LoginController.m in Sources */,
 				2D4883361B7A8D09001CA967 /* ArtistController.m in Sources */,
 				2D7BC3A51B79165900D4A229 /* ViewController.m in Sources */,
 				2D7BC3A21B79165900D4A229 /* AppDelegate.m in Sources */,
 				2D7BC39F1B79165900D4A229 /* main.m in Sources */,
+				2D42BF501B8BAE97003BE9E6 /* SongController.m in Sources */,
+				2D42BF4D1B8BAE56003BE9E6 /* SongCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -324,14 +405,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		2D7BC3A61B79165900D4A229 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				2D7BC3A71B79165900D4A229 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		2D7BC3AB1B79165900D4A229 /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -427,6 +500,7 @@
 		};
 		2D7BC3BD1B79165900D4A229 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DBF53B0CC044060D0E5232F5 /* Pods-SpotifyStreamer.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -435,13 +509,14 @@
 				);
 				INFOPLIST_FILE = SpotifyStreamer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
 		};
 		2D7BC3BE1B79165900D4A229 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E01EB6708AC158E44ADB8860 /* Pods-SpotifyStreamer.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -450,7 +525,7 @@
 				);
 				INFOPLIST_FILE = SpotifyStreamer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

@@ -23,6 +23,17 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(sessionUpdatedNotification:) name:@"sessionUpdated" object:nil];
     self.statusLabel.text = @"";
     self.firstLoad = YES;
+    
+    //Fondo de pantalla del view
+    UIGraphicsBeginImageContext(self.view.frame.size);
+    [[UIImage imageNamed:@"background.jpg"] drawInRect:self.view.bounds];
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    self.view.backgroundColor = [UIColor colorWithPatternImage:image];
+    
+    //Poder acceder al territorio para que cuando obtenga los top de canciones no se repitan
+    [[SPTAuth defaultInstance]  setRequestedScopes:@[SPTAuthUserReadPrivateScope, SPTAuthUserReadEmailScope]];
 }
 
 - (BOOL)prefersStatusBarHidden {

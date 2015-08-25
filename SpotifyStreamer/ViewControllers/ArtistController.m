@@ -7,12 +7,16 @@
 //
 
 #import "ArtistController.h"
+#import "SongController.h"
+#import "ArtistCell.h"
+#import <SDWebImage/UIImageView+WebCache.h>
 #import <Spotify/Spotify.h>
 #import "Config.h"
 
 @interface ArtistController ()
     @property (nonatomic,strong) NSMutableArray *artists;
-    @property (nonatomic,strong) NSMutableArray *artistsC;
+    @property (nonatomic,strong) SPTUser *User;
+   // @property (nonatomic,strong) NSMutableArray *artistsC;
     //@property (nonatomic,strong) UISearchController *searchController;
      //@property (nonatomic,strong) SPTArtist *artist;
 @property (nonatomic,strong) UISearchController *searchController;
@@ -24,6 +28,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    SPTAuth *auth = [SPTAuth defaultInstance];
+    [SPTUser requestCurrentUserWithAccessToken:auth.session.accessToken callback:^(NSError *error, SPTUser *response) {
+        if(error != nil){
+            NSLog(@"*** Failed to get user %@", error);
+            return;
+        }
+        self.User = response;
+    }];
     
    //self.artists = [[Artist getArtists] mutableCopy];
     // Search controller
@@ -40,13 +52,6 @@
     
     self.artists = [NSMutableArray array];
     
-    /*searchId = 0;
-    displayedSearchId = -1;
-    loadedPage = 0;
-    nbPages = 0;
-    
-    placeholder = [UIImage imageNamed:@"white"];
-    */
     // First load
     [self updateSearchResultsForSearchController:self.searchController];
    // [self updateSearchResultsForSearchController:];
@@ -76,7 +81,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-   NSLog(@"COUNT ARTISTS: %lu", (unsigned long)self.artists.count);
+  // NSLog(@"COUNT ARTISTS: %lu", (unsigned long)self.artists.count);
     // Return the number of rows in the section.
     return self.artists.count;
     
@@ -84,57 +89,26 @@
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ArtistCell" forIndexPath:indexPath];
+    ArtistCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ArtistCell" forIndexPath:indexPath];
 
-    // Configure the cell...
-    //SPTArtist* artist = self.artists[indexPath.row];
-   // Artist *artist = self.artists[indexPath.row];
-   // cell.nameLabel.text = artist.nombre;
-    //cell.imageView.image = [UIImage imageNamed:artist.foto];
-    
-    
-    
     SPTPartialArtist* partialArtist = self.artists[indexPath.row];
-    //cell.textLabel.highlightedTextColor = [UIColor colorWithRed:1 green:1 blue:0.898 alpha:1];
-    cell.textLabel.text = partialArtist.name;
-    
-    // Avoid loading image that we don't need anymore
-    //[cell.imageView cancelImageRequestOperation];
-    // Load the image and display another image during the loading
-    
-    
+    cell.nameLabel.highlightedTextColor = [UIColor colorWithRed:1 green:1 blue:0.898 alpha:1];
+    cell.nameLabel.text = partialArtist.name;
+
     if (partialArtist.uri) {
         [SPTArtist artistWithURI:partialArtist.uri accessToken:nil callback:^(NSError *error, SPTArtist *artist) {
             if (artist.smallestImage.imageURL) {
-                // Pop over to a background queue to load the image over the network.
-                dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-                    NSError *error = nil;
-                    UIImage *image = nil;
-                    NSData *imageData = [NSData dataWithContentsOfURL:artist.smallestImage.imageURL options:0 error:nil];
-                    
-                    if (imageData != nil) {
-                        image = [UIImage imageWithData:imageData];
-                    }
-                    
-                    
-                    // …and back to the main queue to display the image.
-                    dispatch_async(dispatch_get_main_queue(), ^{
-                        
-                        cell.imageView.image = image;
-                        if (image == nil) {
-                            NSLog(@"Couldn't load cover image with error: %@", error);
-                            return;
-                        }
-                    });
-                    
-                    
-                });            }
+                
+                [cell.thumbnailImageView sd_setImageWithURL:artist.smallestImage.imageURL
+                                  placeholderImage:[UIImage imageNamed:@"spinner.png"]];
+                cell.thumbnailImageView.layer.cornerRadius = 31.0;
+                cell.thumbnailImageView.layer.masksToBounds = YES;
+            }
             
         }];
-    
+        
     }
-    
-    NSLog(@"Retornando CELL %@", @"");
+
     return cell;
 }
 
@@ -157,127 +131,30 @@
         [self.tableView reloadData];
         
     }];
-    
-    
-    //if (self.searchController.searchBar.text.length > 3) {
-    
-        //
-    
-    
-   /// PARTE RARA
-    
-    
-    /*
-        SPTAuth *auth = [SPTAuth defaultInstance];
-
- NSLog(@"TEXTO BSUQUEDA %@ ", self.searchController.searchBar.text);
-    
-    
-    [self.artists removeAllObjects];
-
-        [SPTSearch performSearchWithQuery:self.searchController.searchBar.text queryType:SPTQueryTypeArtist accessToken: auth.session.accessToken callback:^(NSError *error, SPTListPage *result) {
-            NSLog(@"OBTENIDO %lu ", (unsigned long)result.items.count);
-                       for (SPTPartialArtist *PartialArtist in result.items) {
-                
-               
-                if (PartialArtist.uri) {
-                   
-                    [SPTArtist artistWithURI:PartialArtist.uri accessToken:nil callback:^(NSError *error, SPTArtist *artist) {
-                       // if (artist != nil) {
-                         NSLog(@"AGREGADO %@ ", artist.name);
-                            [self.artists addObject:artist];
-                       
-                       // }else{
-                       // NSLog(@"NOT OBJECt %@ ", @"");
-                       // }
-                                            }];
-                }else{
-                NSLog(@"NOT URI %@ ", PartialArtist.name);
-                }
-              
-                
-            }
-            //self.artists = self.artistsC;
-            
-           [self.tableView reloadData];
-            
-        }];
-    */
-}
-    /*
-    
     }
-    
-  
-    */
-    /*
-     
-     
-    
-    // Oh noes, the token has expired, if we have a token refresh service set up, we'll call tat one.
-    
-    
-    [SPTSearch performSearchWithQuery:self.searchController.searchBar.text queryType:SPTQueryTypeArtist accessToken: nil callback:^(NSError *error, SPTListPage *result) {
-        [self.artists removeAllObjects];
-        
-        
-        for (SPTPartialArtist *PartialArtist in result.items) {
-           // [self.artistsURI addObjectsFromArray:result.items.accessibilityElements]
-            
-            [SPTArtist artistWithURI:PartialArtist.uri session:auth.session callback:^(NSError *error, SPTArtist *artist) {
-                [self.artists addObject:artist];
-            }];
-            
-        }
-        [self.tableView reloadData];
-  }];
-        */
-      //  NSArray *names = [result.items valueForKey:@"playableUri"];
-       // for (NSURL *objeto in result) {
-         
-            //[self.artists addObject:artist];
-       // }
-        
-        
-        
-        
-         /*NSArray *names = [result.items valueForKey:@"playableUri"];
-        [SPTArtist artistsWithURIs:names session:nil callback:^(NSError *error, NSArray *ArtistList) {
-            [self.artists removeAllObjects];
-            [self.artists addObjectsFromArray:ArtistList];
-        }];
-        
-        
-        
-        
-        
-        
-       //[a]SPTArtist createRequestForArtists:result.items withAccessToken:nil error:(NSError *__autoreleasing *)
-        
-        
-         
-         for (NSURL *objeto in names) {
-         [self.artists addObject:artist];
-         }
-         for (SPTPartialArtist *artist in result.items) {
-            [self.artistsURI addObjectsFromArray:result.items.accessibilityElements]
-            
-            SPTArtist artistsWithURIs:result.items session:<#(SPTSession *)#> callback:<#^(NSError *error, id object)block#>
-              [self.artists addObject:artist];
-        }
-         [SPTArtist artistsWithURIs:names session:nil callback:^(NSError *error, SPTListPage *ArtistList) {
-         
-         [self.artists addObjectsFromArray:ArtistList.items];
-         }];
-       
-        */
-        
-  
-    
-    
-    
-    
 
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [self performSegueWithIdentifier:@"ShowSongs" sender:indexPath];
+}
+
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+    if ([segue.identifier isEqualToString:@"ShowSongs"]) {
+        
+        
+        NSIndexPath* indexPath = sender;
+        SPTPartialArtist* artist = [self.artists objectAtIndex:indexPath.row];
+        SongController *destViewController = segue.destinationViewController;
+        destViewController.artist = artist;
+        destViewController.User = self.User;
+        
+        
+    }
+}
 
 
 
